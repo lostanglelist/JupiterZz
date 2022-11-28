@@ -1,0 +1,225 @@
+﻿@model IEnumerable<DHSHOP.Models.ImageModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<body class="appear-animate" style="background-color:white">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- End Page Loader -->
+    <!-- Skip to Content -->
+    <a href="#main" class="btn skip-to-content">Skip to Content</a>
+    <!-- End Skip to Content -->
+    <!-- Page Wrap -->
+    <div class="page" id="top">
+
+        <!-- Navigation panel -->
+        <nav class="main-nav dark transparent stick-fixed">
+            <div class="full-wrapper relative clearfix">
+                <!-- Logo ( * your text or image into link tag *) -->
+                <div class="nav-logo-wrap local-scroll">
+                    <a href="#top" class="logo">
+                        <img src="~/images/logo/darkhouse_studiowhite.png" />
+                    </a>
+                </div>
+                <div class="mobile-nav" role="button" tabindex="0">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Menu</span>
+                </div>
+                <!-- Main Menu -->
+                <div class="inner-nav desktop-nav">
+                    <ul class="clearlist scroll-nav local-scroll">
+                        <li class="active"><a asp-controller="Image" asp-action="Create">Add Products</a></li>
+                    </ul>
+
+                    <ul class="clearlist scroll-nav local-scroll">
+                        <li class="active"><a asp-controller="Image" asp-action="Index">Products</a></li>                   
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+        <!-- End Navigation panel -->
+    </div>
+
+    <main id="main">
+
+        
+        <!-- Head Section -->
+        <section class="page-section bg-dark-alfa-50 parallax-3" data-background="images/banners/banner.jpg">
+            <div class="relative container align-left">
+
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Products List</h1>
+                        <div class="hs-line-4 font-alt">
+                            GPUs that are beyond fast for gamers and creators
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mt-30">
+                        <div class="mod-breadcrumbs font-alt align-right">
+                            <a href="">Home</a>&nbsp;/&nbsp;<a href="">Pages</a>&nbsp;/&nbsp;<span>Products List</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Head Section -->
+         
+        <section class="page-section">
+            <div class="container relative">
+                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Products</h1>
+                <!-- Divider -->
+                <hr class="mt-0 mb-0 " />
+                <!-- End Divider -->
+                <br />
+                <br />
+                <br />
+                @foreach (var item in Model) {
+                    <br />
+                    <br />
+                    <br />
+                <div class="row">
+
+                    <div class="col-md-7 offset-lg-1">
+
+                        <!-- Work Gallery -->
+                        <div class="work-full-media mt-0 white-shadow">
+                            <ul class="clearlist work-full-slider owl-carousel">
+                                <li>
+                                        <img src="@("~/image/"+@item.ProductImage)" asp-append-version="true" style="width:400px !important">
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Work Gallery -->
+
+                    </div>
+
+                    <div class="col-md-5 col-lg-4 mb-sm-40">
+
+                        <!-- About Project -->
+                        <div class="text">
+
+                                <h3 class="font-alt mb-30 mb-xxs-10">@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                                <p>
+                                    Product Price : @Html.DisplayFor(modelItem => item.ProductPrice) Baht
+                                </p>
+                            <p>
+                                    Product Detail : @Html.DisplayFor(modelItem => item.ProductDetail)
+                            </p>
+                                <br><br>                                  
+                                       
+                                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-mod btn-border btn-round">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-mod btn-border btn-round">Delete</a>
+
+
+                        </div>
+                        <!-- End About Project -->
+
+                    </div>
+                </div>
+                    <br />
+
+                    <br />
+
+                    <br />
+                    <!-- Divider -->
+                    <hr class="mt-0 mb-0 " />
+                    <!-- End Divider -->
+                }
+            </div>
+        </section>
+        <!-- End Section -->
+                
+        <!-- Contact Section -->
+        <section class="page-section" id="contact" >
+            <div class="container relative">
+
+                <h2 class="section-title font-alt mb-70 mb-sm-40">
+                    Contact
+                </h2>
+
+                <div class="row mb-60 mb-xs-40">
+                    <!-- Social Links -->
+                    <center>
+                    <div class="footer-social-links mb-110 mb-xs-60">
+                        <a href="https://www.facebook.com/wachira.pach/" title="Facebook" target="_blank"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
+                        <a href="https://www.facebook.com/PoySorravich" title="Facebook" target="_blank"><i class="fa fa-facebook"></i> <span class="sr-only">Facebook profile</span></a>
+
+                    </div>
+                    </center>
+                    <!-- End Social Links -->
+                    <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                        <div class="row">
+
+                            <!-- Phone -->
+                            <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        Call Us
+                                    </div>
+                                    <div class="ci-text">
+                                        +61 9 9999 9999
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Phone -->
+                            <!-- Address -->
+                            <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        Address
+                                    </div>
+                                    <div class="ci-text">
+                                        King Mongkut's University of Technology Thonburi
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Address -->
+                            <!-- Email -->
+                            <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        Email
+                                    </div>
+                                    <div class="ci-text">
+                                        support@bestlooker.pro
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Email -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Top Link -->
+            <div class="local-scroll">
+                <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i><span class="sr-only">Scroll to top</span></a>
+            </div>
+            <!-- End Top Link -->
+        </section>
+        <!-- End Contact Section -->   
+        
+    </main>
+   
+</body>

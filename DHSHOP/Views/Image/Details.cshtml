@@ -1,0 +1,43 @@
+﻿@model DHSHOP.Models.ImageModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container relative">
+<h1>Details</h1>
+
+<div>
+    <h4>ImageModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductDetail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductDetail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductImage)
+        </dt>
+        <dd class = "col-sm-10">
+                @Html.DisplayNameFor(model => model.ProductImage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
